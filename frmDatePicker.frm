@@ -95,7 +95,7 @@ Dim b As Boolean
   b = (cboMonth.ListIndex > -1)
   frCalendar.Visible = b
   If b = False Then
-    MsgBox "Invalid month: " & cboMonth.Text & vbNewLine & "Please select month from the dropdown list.", vbOKOnly, Caption
+    MsgBox "Invalid month provided: " & cboMonth.Text & vbNewLine & "Please select month from the dropdown list.", vbOKOnly, Caption
     Exit Sub
   End If
   DateToUserForm DateSerial(SelectedYear, SelectedMonth, 1)
@@ -106,13 +106,23 @@ Dim b As Boolean
 
   If txtYear.TextLength <> 4 Then Exit Sub
   b = (txtYear.Text Like "####")
-  If b Then b = txtYear.Text >= Year(0)
   frCalendar.Visible = b
   If b = False Then
-    MsgBox "Invalid year: " & txtYear.Text & vbNewLine & "Please provide year in 'yyyy' format.", vbOKOnly, Caption
+    MsgBox "Invalid year provided: " & txtYear.Text & vbNewLine & "Please provide year in 'yyyy' format.", vbOKOnly, Caption
     Exit Sub
   End If
   DateToUserForm DateSerial(SelectedYear, SelectedMonth, 1)
+End Sub
+
+Private Sub btnOk_Click()
+  Select Case True
+    Case (Not txtYear.Text Like "####")
+      MsgBox "Invalid year provided: " & txtYear.Text & vbNewLine & "Please provide year in 'yyyy' format.", vbOKOnly, Caption
+    Case (cboMonth.ListIndex = -1)
+      MsgBox "Invalid month provided: " & cboMonth.Text & vbNewLine & "Please select month from the dropdown list.", vbOKOnly, Caption
+    Case Else
+      Hide
+  End Select
 End Sub
 
 Private Sub fillMonths()
@@ -318,10 +328,6 @@ End Sub
 
 Private Sub Label9_Click()
   selectDay Label9
-End Sub
-
-Private Sub btnOk_Click()
-  Hide
 End Sub
 
 Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
