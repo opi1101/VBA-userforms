@@ -1,6 +1,5 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} frmDatePicker 
-   Caption         =   "DatePicker"
    ClientHeight    =   5415
    ClientLeft      =   120
    ClientTop       =   465
@@ -17,6 +16,7 @@ Private mCancelled As Boolean
 Private mDate As Double
 
 Private Sub UserForm_Initialize()
+  Caption = ThisWorkbook.Name
   fillMonths
   fillDayNames
   DateToUserForm DateTime.Date
