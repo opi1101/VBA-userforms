@@ -42,5 +42,5 @@ Dim p As Double
 End Sub
 
 Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
-  Cancel = True
+  Cancel = (CloseMode <> VbQueryClose.vbFormCode)
 End Sub
