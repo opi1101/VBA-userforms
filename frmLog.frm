@@ -20,19 +20,20 @@ Private Sub UserForm_Initialize()
   Caption = ThisWorkbook.Name
   lblHeader = vbNullString
   txtLog.Text = vbNullString
+  txtLog.Locked = True
 End Sub
 
 Property Get Cancelled() As Boolean
   Cancelled = mCancelled
 End Property
 
-Sub AddLog(ByVal Text As String, Optional LineSeparator As String = "---")
+Sub AddLog(ByVal Text As String, Optional LogSeparator As String = "---")
   With txtLog
     Select Case .TextLength
       Case 0
         .Text = Text
       Case Else
-        .Text = .Text & vbNewLine & LineSeparator & vbNewLine & Text
+        .Text = .Text & vbNewLine & LogSeparator & vbNewLine & Text
     End Select
   End With
 End Sub
