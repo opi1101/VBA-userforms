@@ -5,13 +5,15 @@ Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} frmProgBar
    ClientTop       =   465
    ClientWidth     =   6525
    OleObjectBlob   =   "frmProgBar.frx":0000
-   StartUpPosition =   1  'CenterOwner
+   StartUpPosition =   2  'CenterScreen
 End
 Attribute VB_Name = "frmProgBar"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+' Source: https://github.com/opi1101
+
 Private Sub UserForm_Initialize()
   Caption = ThisWorkbook.Name
   lblBar.Width = 0

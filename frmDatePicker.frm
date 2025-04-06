@@ -12,6 +12,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+' Source: https://github.com/opi1101
+
 Private mCancelled As Boolean
 Private mDate As Double
 
